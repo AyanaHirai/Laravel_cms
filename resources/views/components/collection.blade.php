@@ -3,11 +3,11 @@
   <div>{{ $slot }}</div>
   
     <div>
-    <form action="{{ url('booksedit/'.$id) }}" method="POST">
+    <form action="{{ url('secretary/'.$id) }}" method="GET">
          @csrf
          
         <button type="submit"  class="btn bg-blue-500 rounded-lg">
-            更新
+            詳細
         </button>
         
      </form>
@@ -19,10 +19,10 @@
          @method('DELETE')
         
         <button type="submit"  class="btn bg-blue-500 rounded-lg">
-            削除
+            <!--削除-->
         </button>
         
      </form>
   </div>
-
+  
 </div>

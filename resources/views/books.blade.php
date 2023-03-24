@@ -1,11 +1,20 @@
+<!--dashboard→これではなく、users.blade.php-->
+
 <!-- resources/views/books.blade.php -->
 <x-app-layout>
 
     <!--ヘッダー[START]-->
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight" style="margin:5px">
             <form action="{{ route('book_index') }}" method="GET" class="w-full max-w-lg">
                 <x-button class="bg-gray-100 text-gray-900">{{ __('Dashboard') }}</x-button>
+            </form>
+        </h2>
+        
+        <!--スキルテストに飛ぶ-->
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight" style="margin:5px">
+            <form action="{{ route('skill_test.index') }}" method="GET" class="w-full max-w-lg">
+                <x-button class="bg-gray-100 text-gray-900">{{ __('Skill Test') }}</x-button>
             </form>
         </h2>
     </x-slot>
@@ -28,32 +37,32 @@
             </div>
 
 
-            <!-- 本のタイトル -->
+             <!--本のタイトル -->
             <form action="{{ url('books') }}" method="POST" class="w-full max-w-lg">
                 @csrf
                   <div class="flex flex-col px-2 py-2">
-                   <!-- カラム１ -->
+                    <!--カラム１ -->
                     <div class="w-full md:w-1/1 px-3 mb-2 md:mb-0">
                       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                        Book Name
                       </label>
                       <input name="item_name" class="appearance-none block w-full text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="">
                     </div>
-                    <!-- カラム２ -->
+                     <!--カラム２ -->
                     <div class="w-full md:w-1/1 px-3">
                       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                         金額
                       </label>
                       <input name="item_amount" class="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
                     </div>
-                    <!-- カラム３ -->
+                     <!--カラム３ -->
                     <div class="w-full md:w-1/1 px-3 mb-2 md:mb-0">
                       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                         数
                       </label>
                       <input name="item_number" class="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
                     </div>
-                    <!-- カラム４ -->
+                     <!--カラム４ -->
                     <div class="w-full md:w-1/1 px-3 mb-6 md:mb-0">
                       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                         発売日
@@ -61,7 +70,7 @@
                       <input name="published" type="date" class="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
                     </div>
                   </div>
-                  <!-- カラム５ -->
+                   <!--カラム５ -->
                   <div class="flex flex-col">
                       <div class="text-gray-700 text-center px-4 py-2 m-2">
                              <x-button class="bg-blue-500 rounded-lg">送信</x-button>
@@ -73,18 +82,19 @@
     
     
     <!--右側エリア[START]-->
-        <div class="flex-1 text-gray-700 text-left bg-blue-100 px-4 py-2 m-2">
-             <!-- 現在の本 -->
-            @if (count($books) > 0)
-                @foreach ($books as $book)
-                    <x-collection id="{{ $book->id }}">{{ $book->item_name }}</x-collection>
+        <div class="flex-1 text-gray-700 text-left bg-blue-100 px-4 py-2 m-2" style="flex-direction:column">
+         <!--ユーザー一覧 -->
+            @if (count($users) > 0)
+                @foreach ($users as $user)
+                    <x-collection id="{{ $user->id }}">{{ $user->item_name }}</x-collection>
                 @endforeach
             @endif
         </div>
     <!--右側エリア[[END]-->  
     
     <div>
-        {{ $books->links()}}
+        {{ $users->links()}}
+        <!--books-->
     </div>
 
 </div>

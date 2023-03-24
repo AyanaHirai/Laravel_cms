@@ -17,10 +17,17 @@ class BookController extends Controller
     public function index()
     {
          //自分のuser_idが付与されている投稿だけ取得する
+        // $users = Book::where('user_id',Auth::id())->orderBy('created_at', 'asc')->paginate(3);
+        // return view('users', [
+        //     'users' => $users
+        // ]);
+        //          //自分のuser_idが付与されている投稿だけ取得する
         $books = Book::where('user_id',Auth::id())->orderBy('created_at', 'asc')->paginate(3);
         return view('books', [
             'books' => $books
         ]);
+        
+
     }
 
     /**
