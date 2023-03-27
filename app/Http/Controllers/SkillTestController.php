@@ -61,7 +61,7 @@ class SkillTestController extends Controller
     
         //バリデーション:エラー 
         if ($validator->fails()) {
-            return redirect('/sotsusei3/skill_test')
+            return redirect('/skill_test')
                 ->withInput()
                 ->withErrors($validator);
         }
@@ -106,7 +106,7 @@ class SkillTestController extends Controller
     // 	  $books->item_amount = $request->item_amount;
     // 	  $books->published   = $request->published;
     // 		$books->user_id = Auth::id();//ここを追加
-    	  return redirect('/sotsusei3/skill_test'); // /skill_testここで回答画面に飛ばすorプロフィールに飛ばす
+    	  return redirect('/skill_test'); // /skill_testここで回答画面に飛ばすorプロフィールに飛ばす
     // 	  return redirect('/skill_test'); // /skill_testここで回答画面に飛ばすorプロフィールに飛ばす
 
     }
