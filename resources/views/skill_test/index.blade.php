@@ -12,7 +12,7 @@
                 <div class="p-6 text-gray-900">
                     <!--ここにテストを書く-->
                     
-                    <form action="/skill_tests" method=POST>
+                    <form action="/sotsusei3/skill_tests" method=POST>
                         @csrf
                         <p class="p-6">問１.創立記念式典の開催後に上司から反省会を行いたいため担当した人にメールで
                         知らせるよう指示があった。<br>

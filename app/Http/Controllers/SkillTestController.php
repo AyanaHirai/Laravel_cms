@@ -61,7 +61,7 @@ class SkillTestController extends Controller
     
         //バリデーション:エラー 
         if ($validator->fails()) {
-            return redirect('/skill_test')
+            return redirect('/sotsusei3/skill_test')
                 ->withInput()
                 ->withErrors($validator);
         }
